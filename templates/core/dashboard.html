@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load humanize %}
 {% load static %}
 
 {% block title %}
@@ -32,7 +32,8 @@
          </div>
 
     </div>
-  
+   {% if trades %}
+        {% for trade in trades %}
   <div class="container">
                 <!-- sales report area start -->
                 <div class="sales-report-area mt-5 mb-5">
@@ -43,10 +44,10 @@
                                     <div class="icon"><img src="{%static './assets/img/trade.png'%}" alt=""></div>
                                     <div class="s-report-title d-flex justify-content-between">
                                         <h4 class="header-title mb-0">Trading Amount</h4>
-                                        <p>₦550-$1</p>
+                                        <p>Daimond Plan</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 0.00</h2>
+                                        <h2>$ {{trade.trading_ammount | intcomma}}.00</h2>
                                         <span>- TOTAL</span>
                                     </div>
                                 </div>
@@ -62,7 +63,7 @@
                                         <p>Cycle</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>0.00%</h2>
+                                        <h2>{{trade.intrestrate}}.00%</h2>
                                         <span>- TOTAL</span>
                                     </div>
                                 </div>
@@ -75,10 +76,10 @@
                                     <div class="icon"><img src="{%static './assets/img/wallet.png'%}" alt=""></div>
                                     <div class="s-report-title d-flex justify-content-between">
                                         <h4 class="header-title mb-0">Profit</h4>
-                                        <p>₦550-$1</p>
+                                        <p>Monthly</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 0.00</h2>
+                                        <h2>$ {{trade.profit | intcomma}}.00</h2>
                                         <span>- TOTAL</span>
                                     </div>
                                 </div>
@@ -86,6 +87,12 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+          {% else %}
+          <div class="col-md-12">
+            <p>No Investment plan Avialbale</p>
+        </div>
+      {% endif %}
                 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h1 class="display-4 fw-normal">Investment Plans</h1>
       <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>

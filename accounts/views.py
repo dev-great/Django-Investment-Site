@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from contact.models import Contact
+from . models import Trade
 
 
 # Create your views here.
@@ -68,5 +69,5 @@ def logout(request):
 	return redirect('accounts:login_view')
 
 def dashboard(request):
-	
-	return render(request,'core/dashboard.html')
+	trades = Trade.objects.filter(user=request.user.id)
+	return render(request,'core/dashboard.html', {'trades' : trades})
