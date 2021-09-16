@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-oki*0!^!mx*ijy_n_&2locwb=75yu#e&jfn5%f6&zst*6t74nh
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT =True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'futuretrade.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
