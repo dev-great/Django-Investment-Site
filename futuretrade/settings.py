@@ -28,7 +28,7 @@ DEBUG = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT =True
 
-ALLOWED_HOSTS = ['futuretrade.herokuapp.com']
+ALLOWED_HOSTS = ['futuretrade.herokuapp.com','futuretradeinvest.com','www.futuretradeinvest.com']
 
 
 # Application definition
